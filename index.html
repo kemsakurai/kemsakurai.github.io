@@ -1,39 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Kemsakurai.GitHub.io : ">
+    <title>Kemsakurai.GitHub.io by kemsakurai</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Kemsakurai.GitHub.io</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>Kemsakurai.GitHub.io</h1>
+        <p></p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/kemsakurai">View on GitHub</a>
 
-          <h1 id="project_title">Kemsakurai.GitHub.io</h1>
-          <h2 id="project_tagline"></h2>
+        <p class="view"><a href="https://github.com/kemsakurai">View My GitHub Profile</a></p>
 
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      </header>
+      <section>
         <h1>
 <a id="monotalk" class="anchor" href="#monotalk" aria-hidden="true"><span class="octicon octicon-link"></span></a>MonoTalk</h1>
 
 <p>このライブラリはAndroid用のORマッピングライブラリです。
 煩雑な実装になりがちなAndroidのDB周辺実装を簡略化することを目的としています。<br>
-アンドロイドアプリを作っていたつもりでしたが、アプリはできずにライブラリが。。<br>
-<a href="https://github.com/pardom/ActiveAndroid">Active Android</a>, <a href="https://github.com/pardom/ollie/">Ollie</a>, <a href="https://github.com/emilsjolander/sprinkles">Sprinkles</a>,
+アンドロイドアプリを作っていたつもりでしたが、アプリはできずにライブラリとなりました。</p>
+
+<p><a href="https://github.com/pardom/ActiveAndroid">Active Android</a>, <a href="https://github.com/pardom/ollie/">Ollie</a>, <a href="https://github.com/emilsjolander/sprinkles">Sprinkles</a>,
 <a href="https://github.com/Raizlabs/DBFlow">DBFlow</a>,<a href="http://greendao-orm.com">greenDAO</a>,<a href="http://dbflute.seasar.org">DBFlute</a>,<a href="http://s2container.seasar.org/2.4/ja/s2jdbc.html">S2JDBC</a>
 等の実装を参考にしながら作成しています。<br>
 基本機能は動作しますが、外部IFなどはまだ変更予定です。</p>
@@ -119,8 +116,8 @@
 <a href="https://github.com/Column" class="user-mention">@Column</a>にはPK指定はできません。<br>
 (Create Table DDL実行時に、_id カラムをAUTOINCREMENT 指定の主キーとして作成します。)<br>
 </li>
-<li>自然キーとなる項目には、Columnアノテーションのuniqe属性、<br>
-もしくは、@UniqeアノテーションでUniqe制約を付与してください。<br>
+<li>自然キーとなる項目には、Columnアノテーションのunique属性、<br>
+もしくは、<a href="https://github.com/Unique" class="user-mention">@Unique</a>アノテーションでunique制約を付与してください。<br>
 </li>
 </ul>
 
@@ -171,7 +168,7 @@
 <div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
     <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
     <span class="pl-st">long</span> id <span class="pl-k">=</span> <span class="pl-c1">111l</span>;
-    notes<span class="pl-k">.</span>setId(id);
+    notes<span class="pl-k">.</span>id <span class="pl-k">=</span> id;
     notes<span class="pl-k">.</span>title <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Title1<span class="pl-pds">"</span></span>;
     notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
     manager<span class="pl-k">.</span>update(notes);
@@ -179,12 +176,12 @@
     <span class="pl-c">// ## Null除外する際は、updateExcludesNullが使用可能です。</span>
     <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
     <span class="pl-st">long</span> id <span class="pl-k">=</span> <span class="pl-c1">111l</span>;
-    notes<span class="pl-k">.</span>setId(id);
+    notes<span class="pl-k">.</span>id <span class="pl-k">=</span> id;
     notes<span class="pl-k">.</span>title <span class="pl-k">=</span> <span class="pl-c1">null</span>;
     notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
     manager<span class="pl-k">.</span>updateExcludesNull(notes);
 
-    <span class="pl-c">// ## SQliteDatabaseと同じようなIFでの更新が可能です</span>
+    <span class="pl-c">// ## SQliteDatabaseと同じIFでの更新</span>
     <span class="pl-stj">ContentValues</span> value <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">ContentValues</span>();
     value<span class="pl-k">.</span>put(<span class="pl-stj">Notes</span><span class="pl-c1"><span class="pl-k">.</span>TITLE</span>, <span class="pl-s1"><span class="pl-pds">"</span>TEST<span class="pl-pds">"</span></span>);
     manager<span class="pl-k">.</span>updateById(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class, value, <span class="pl-c1">1l</span>);</pre></div>
@@ -194,7 +191,7 @@
 <div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
     <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
     <span class="pl-st">long</span> id <span class="pl-k">=</span> <span class="pl-c1">111l</span>;
-    notes<span class="pl-k">.</span>setId(id);
+    notes<span class="pl-k">.</span>id <span class="pl-k">=</span> id;
     manager<span class="pl-k">.</span>delete(notes);
 
     <span class="pl-c">// Class と IDを指定して削除する</span>
@@ -207,32 +204,147 @@
 <h3>
 <a id="クエリオブジェクトを使用したcrud" class="anchor" href="#%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9Fcrud" aria-hidden="true"><span class="octicon octicon-link"></span></a>クエリオブジェクトを使用したCRUD</h3>
 
-<p>クエリオブジェクトはentitymanagrのnew...で始まるメソッドを使用して生成します。  </p>
+<p>クエリオブジェクトはentitymanagrのnew...で始まるメソッドを使用して生成します。<br>
+INSERT</p>
 
 <div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
     manager<span class="pl-k">.</span>newInsertInto(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>value(<span class="pl-stj">Notes</span><span class="pl-c1"><span class="pl-k">.</span>TITLE</span>, <span class="pl-s1"><span class="pl-pds">"</span>TEST<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>execute();
 
-    <span class="pl-c">// monotalk.db.query.QueryBuilder#toValuesExcludesColumns()をstatic importして、</span>
+    <span class="pl-c">// monotalk.db.query.QueryUtils#from()をstatic importして、 </span>
     <span class="pl-c">// EntityオブジェクトからContentsValueを生成して登録します。</span>
     <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
     <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
     notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
-    manager<span class="pl-k">.</span>newInsertInto(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>values(toValuesExcludesColumns(notes, <span class="pl-stj">Notes</span><span class="pl-c1"><span class="pl-k">.</span>TITLE</span>))<span class="pl-k">.</span>execute();
-
+    manager<span class="pl-k">.</span>newInsert(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>values(from(notes, <span class="pl-stj">Notes</span><span class="pl-c1"><span class="pl-k">.</span>TITLE</span>))<span class="pl-k">.</span>execute();
 </pre></div>
 
-<p>update,deleteについては今後ドキュメントを作成します。</p>
-      </section>
-    </div>
+<p>UPDATE</p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+<div class="highlight highlight-java"><pre>        <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+        manager<span class="pl-k">.</span>newUpdate(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>as(<span class="pl-s1"><span class="pl-pds">"</span>Notes<span class="pl-pds">"</span></span>)
+                .value(<span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>)
+                .where(<span class="pl-s1"><span class="pl-pds">"</span>_id<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-c1">111l</span>);
+
+
+        <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
+        notes<span class="pl-k">.</span>id <span class="pl-k">=</span> <span class="pl-c1">100l</span>;
+        <span class="pl-c">// monotalk.db.query.QueryUtils#idEquals()をstatic importして、 </span>
+        <span class="pl-c">// EntityオブジェクトからContentsValueを生成して登録します。</span>
+        manager<span class="pl-k">.</span>newUpdate(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>as(<span class="pl-s1"><span class="pl-pds">"</span>Notes<span class="pl-pds">"</span></span>)
+                .value(<span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>, <span class="pl-s1"><span class="pl-pds">"</span>Hello<span class="pl-pds">"</span></span>)
+                .where(idEquals(notes));
+</pre></div>
+
+<p>DELETE</p>
+
+<div class="highlight highlight-java"><pre>        <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+        <span class="pl-c">//  delete from notes where _id = 111;</span>
+        manager<span class="pl-k">.</span>newDelete(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+               .where(<span class="pl-s1"><span class="pl-pds">"</span>_id<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-c1">111l</span>);
+        <span class="pl-c">//  delete from notes where _id in (11,22,33);</span>
+        manager<span class="pl-k">.</span>newDelete(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+               .where(<span class="pl-s1"><span class="pl-pds">"</span>_id<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>in(<span class="pl-c1">11l</span>,<span class="pl-c1">22l</span>,<span class="pl-c1">33l</span>);
+        <span class="pl-c">//  delete from notes where DATE &lt; "date.getTime();"</span>
+        manager<span class="pl-k">.</span>newDelete(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+               .where(<span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>lt(<span class="pl-k">new</span> <span class="pl-stj">Date</span>());
+</pre></div>
+
+<p>SELECT</p>
+
+<div class="highlight highlight-java"><pre>        <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+
+        <span class="pl-c">// Cursorで取得</span>
+        <span class="pl-stj">Cursor</span> cursor <span class="pl-k">=</span> manager<span class="pl-k">.</span>newSelect(
+                <span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>BODY<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)
+                .from(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+                .where(<span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-k">new</span> <span class="pl-stj">Date</span>())
+                .orderBy(<span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>)
+                .limit(<span class="pl-c1">2</span>)
+                .offset(<span class="pl-c1">3</span>)<span class="pl-k">.</span>selectCursor();
+
+        <span class="pl-c">// Entity 1要素を取得</span>
+        <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> manager<span class="pl-k">.</span>newSelect(
+                <span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>BODY<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)
+                .from(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+                .where(<span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-k">new</span> <span class="pl-stj">Date</span>())
+                .orderBy(<span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>)
+                .selectOne();
+
+        <span class="pl-c">// EntityListで取得</span>
+        <span class="pl-st">List&lt;<span class="pl-stj">Notes</span>&gt;</span> noteList <span class="pl-k">=</span> manager<span class="pl-k">.</span>newSelect(
+                <span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>BODY<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)
+                .from(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+                .where(<span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-k">new</span> <span class="pl-stj">Date</span>())
+                .orderBy(<span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>)
+                .selectList();
+
+        <span class="pl-c">// LazyListで取得</span>
+        <span class="pl-st">LazyList&lt;<span class="pl-stj">Notes</span>&gt;</span> noteList <span class="pl-k">=</span> manager<span class="pl-k">.</span>newSelect(
+                <span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>BODY<span class="pl-pds">"</span></span>,
+                <span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)
+                .from(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+                .where(<span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-k">new</span> <span class="pl-stj">Date</span>())
+                .orderBy(<span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>)
+                .selectLazyList();
+
+        <span class="pl-c">// スカラー値を取得</span>
+        <span class="pl-st">long</span> count <span class="pl-k">=</span> manager<span class="pl-k">.</span>newSelect(countRowIdAsCount())
+                .from(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+                .where(<span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-k">new</span> <span class="pl-stj">Date</span>())
+                .selectScalar(<span class="pl-stj">Long</span><span class="pl-k">.</span>class);
+
+        <span class="pl-c">// Entityではないものにマッピングして取得</span>
+        <span class="pl-stj">String</span> title <span class="pl-k">=</span> manager<span class="pl-k">.</span>newSelect(countRowIdAsCount())
+                .from(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)
+                .where(<span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>eq(<span class="pl-k">new</span> <span class="pl-stj">Date</span>())
+                .selectOne(<span class="pl-k">new</span> <span class="pl-st">RowMapper&lt;<span class="pl-stj">String</span>&gt;</span>() {
+                    <span class="pl-st">@Override</span>
+                    <span class="pl-s">public</span> <span class="pl-stj">String</span> <span class="pl-en">mapRow</span>(<span class="pl-stj">Cursor</span> <span class="pl-v">cursor</span>) {
+                        <span class="pl-k">return</span> cursor<span class="pl-k">.</span>getString(cursor<span class="pl-k">.</span>getColumnIndex(<span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>));
+                    }
+                });</pre></div>
+
+<h3>
+<a id="twowaysqlを使用したselect" class="anchor" href="#twowaysql%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9Fselect" aria-hidden="true"><span class="octicon octicon-link"></span></a>TWOWAYSQLを使用したSELECT</h3>
+
+<pre lang="select.sql"><code>   SELECT 
+         TITLE,
+     BODY,
+     DATE
+    FROM 
+         NOTES 
+    /*BEGIN*/
+    WHERE
+        /*IF pmb.date != null*/ 
+    DATE = /*pmb.date*/33333333333
+    /*END*/ 
+    /*END*/ 
+</code></pre>
+
+<p>上記のクエリを以下の記述で実行可能です。
+仮に Notes.classのパッケージがcom.exampleであった場合は<br>
+assetディレクトリ配下の asset/com/example/Notes/select.sql を参照し、実行します。</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+    <span class="pl-c">// cursorで取得</span>
+    <span class="pl-stj">Cursor</span> cursor <span class="pl-k">=</span> manager<span class="pl-k">.</span>newSelectBySqlFile(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class, <span class="pl-s1"><span class="pl-pds">"</span>select.sql<span class="pl-pds">"</span></span>)
+               .setParameter(<span class="pl-s1"><span class="pl-pds">"</span>date<span class="pl-pds">"</span></span>, <span class="pl-k">new</span> <span class="pl-stj">Date</span>())
+               .selectCursor();</pre></div>
+
+<p>*TWOWAYSQL parser実装は、<a href="http://dbflute.seasar.org">DBFlute</a>のTWOWAYSQL parserを拝借しています。</p>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
-
   </body>
 </html>
