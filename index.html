@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Kemsakurai.GitHub.io : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Kemsakurai.GitHub.io</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/kemsakurai">View on GitHub</a>
+
+          <h1 id="project_title">Kemsakurai.GitHub.io</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="monotalk" class="anchor" href="#monotalk" aria-hidden="true"><span class="octicon octicon-link"></span></a>MonoTalk</h1>
+
+<p>このライブラリはAndroid用のORマッピングライブラリです。
+煩雑な実装になりがちなAndroidのDB周辺実装を簡略化することを目的としています。<br>
+アンドロイドアプリを作っていたつもりでしたが、アプリはできずにライブラリが。。<br>
+<a href="https://github.com/pardom/ActiveAndroid">Active Android</a>, <a href="https://github.com/pardom/ollie/">Ollie</a>, <a href="https://github.com/emilsjolander/sprinkles">Sprinkles</a>,
+<a href="https://github.com/Raizlabs/DBFlow">DBFlow</a>,<a href="http://greendao-orm.com">greenDAO</a>,<a href="http://dbflute.seasar.org">DBFlute</a>,<a href="http://s2container.seasar.org/2.4/ja/s2jdbc.html">S2JDBC</a>
+等の実装を参考にしながら作成しています。<br>
+基本機能は動作しますが、外部IFなどはまだ変更予定です。</p>
+
+<h2>
+<a id="機能概要" class="anchor" href="#%E6%A9%9F%E8%83%BD%E6%A6%82%E8%A6%81" aria-hidden="true"><span class="octicon octicon-link"></span></a>機能概要</h2>
+
+<p>当ライブラリには以下の機能があります。</p>
+
+<ul>
+<li>Entityクラスに記述したアノテーションからテーブルを作成します。</li>
+<li>複数DBの管理が可能です。</li>
+<li>TABLEクラスからクエリを作成し、単純なCRUDな可能です。</li>
+<li>少し難しいクエリはクエリオブジェクトを使用して作成が可能です。</li>
+<li>難しいクエリは2waysqlを作成して実行が可能です。</li>
+</ul>
+
+<h2>
+<a id="導入方法" class="anchor" href="#%E5%B0%8E%E5%85%A5%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>導入方法</h2>
+
+<p>build.gradleに以下のmavenリポジトリの設定を追加してください。  </p>
+
+<pre><code>repositories {
+      maven { url 'https://kemsakurai.github.io/maven/master/releases' }
+}
+</code></pre>
+
+<p>build.gradleの以下の依存関係を追加してください。  </p>
+
+<pre><code>dependencies {
+     compile 'MonoTalk:monotalk-db:0.0.1'
+}
+</code></pre>
+
+<h2>
+<a id="使用方法" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用方法</h2>
+
+<p>Applicationを継承したクラスに以下のような記述を追加してください。  </p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">SampleApplication</span> <span class="pl-s">extends</span> <span class="pl-e">android.app<span class="pl-k">.</span>Application</span> {
+
+        <span class="pl-st">@Override</span>
+        <span class="pl-s">public</span> <span class="pl-st">void</span> <span class="pl-en">onCreate</span>() {
+            <span class="pl-v">super</span><span class="pl-k">.</span>onCreate();
+
+            <span class="pl-c">// builderをnewする</span>
+            <span class="pl-stj">DatabaseConfigration</span><span class="pl-k">.</span><span class="pl-stj">Builder</span> builder <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">DatabaseConfigration</span>.<span class="pl-stj">Builder</span>();
+            <span class="pl-c">// batabase名を設定</span>
+            builder<span class="pl-k">.</span>setDataBaseName(<span class="pl-s1"><span class="pl-pds">"</span>NotesDB<span class="pl-pds">"</span></span>);
+            <span class="pl-c">// version番号を設定</span>
+            builder<span class="pl-k">.</span>setVersion(<span class="pl-c1">1</span>);
+            <span class="pl-c">// default(プライマリ?) Databaseとして使用する場合,true (初期値true)</span>
+            builder<span class="pl-k">.</span>setDefalutDatabase(<span class="pl-c1">true</span>);
+            <span class="pl-c">// Databaseに関連づけするEntityクラスを設定</span>
+            builder<span class="pl-k">.</span>addTable(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class);
+            builder<span class="pl-k">.</span>addTable(<span class="pl-stj">NoteTag</span><span class="pl-k">.</span>class);
+            builder<span class="pl-k">.</span>addTable(<span class="pl-stj">Tag</span><span class="pl-k">.</span>class);
+            <span class="pl-c">// 初期化</span>
+            <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>init(getApplicationContext(), builder<span class="pl-k">.</span>create());
+        }
+
+        <span class="pl-st">@Override</span>
+        <span class="pl-s">public</span> <span class="pl-st">void</span> <span class="pl-en">onTerminate</span>() {
+            <span class="pl-v">super</span><span class="pl-k">.</span>onTerminate();
+            <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>dispose();
+        }
+    }</pre></div>
+
+<h2>
+<a id="entitytableクラスの作成" class="anchor" href="#entitytable%E3%82%AF%E3%83%A9%E3%82%B9%E3%81%AE%E4%BD%9C%E6%88%90" aria-hidden="true"><span class="octicon octicon-link"></span></a>Entity(Table)クラスの作成</h2>
+
+<ul>
+<li>DATABASEのテーブル定義に対応するEntityクラスを作成します。<br>
+(初期化時にEntityクラスの指定が必要になるので、実際はこちらを先に実施すると思います。)<br>
+</li>
+<li>EntityクラスはEntityを継承して作成する必要があります。<br>
+</li>
+<li>
+<a href="https://github.com/Table" class="user-mention">@Table</a>アノテーションで作成するTableを指定し、<br>
+<a href="https://github.com/Column" class="user-mention">@Column</a>アノテーションで作成するColumn名を指定します。<br>
+</li>
+<li>
+<a href="https://github.com/Column" class="user-mention">@Column</a>にはPK指定はできません。<br>
+(Create Table DDL実行時に、_id カラムをAUTOINCREMENT 指定の主キーとして作成します。)<br>
+</li>
+<li>自然キーとなる項目には、Columnアノテーションのuniqe属性、<br>
+もしくは、@UniqeアノテーションでUniqe制約を付与してください。<br>
+</li>
+</ul>
+
+<div class="highlight highlight-java"><pre>    @Table(name <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>NOTES<span class="pl-pds">"</span></span>)
+    <span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">Notes</span> <span class="pl-s">extends</span> <span class="pl-e">Entity</span> {
+        <span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-s">final</span> <span class="pl-stj">String</span> <span class="pl-c1">TITLE</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>TITLE<span class="pl-pds">"</span></span>;
+        <span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-s">final</span> <span class="pl-stj">String</span> <span class="pl-c1">BODY</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>BODY<span class="pl-pds">"</span></span>;
+        <span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-s">final</span> <span class="pl-stj">String</span> <span class="pl-c1">DATE</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>DATE<span class="pl-pds">"</span></span>;
+
+        <span class="pl-st">@Column</span>(<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-c1">TITLE</span>)
+        <span class="pl-s">public</span> <span class="pl-stj">String</span> title;
+
+        <span class="pl-st">@Column</span>(<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-c1">BODY</span>)
+        <span class="pl-st">@NotNull</span>
+        <span class="pl-s">public</span> <span class="pl-stj">String</span> body;
+
+        <span class="pl-st">@Column</span>(<span class="pl-c1">name</span> <span class="pl-k">=</span> <span class="pl-c1">DATE</span>)
+        <span class="pl-s">public</span> <span class="pl-stj">Date</span> date;
+    }</pre></div>
+
+<h2>
+<a id="データの登録-更新-削除" class="anchor" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E7%99%BB%E9%8C%B2-%E6%9B%B4%E6%96%B0-%E5%89%8A%E9%99%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>データの登録 更新 削除</h2>
+
+<p>EntityManagerクラスを使用した単純なCRUD<br>
+  クエリオブジェクトを使用したCRUD<br>
+    2waysqlを使用したCRUDが実行できます。<br>
+    *2waysqlは現在READのみ可能です。</p>
+
+<h4>
+<a id="entitymanagerクラスを使用したcrud" class="anchor" href="#entitymanager%E3%82%AF%E3%83%A9%E3%82%B9%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9Fcrud" aria-hidden="true"><span class="octicon octicon-link"></span></a>EntityManagerクラスを使用したCRUD</h4>
+
+<p>INSERT  </p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+    <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
+    notes<span class="pl-k">.</span>title <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Title1<span class="pl-pds">"</span></span>;
+    notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
+    <span class="pl-st">long</span> id <span class="pl-k">=</span> manager<span class="pl-k">.</span>insert(notes);
+
+    <span class="pl-c">// ## Null除外する際は、insertExcludesNullが使用可能です。</span>
+    <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
+    notes<span class="pl-k">.</span>title <span class="pl-k">=</span> <span class="pl-c1">null</span>;
+    notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
+    <span class="pl-st">long</span> id <span class="pl-k">=</span> manager<span class="pl-k">.</span>insertExcludesNull(notes);</pre></div>
+
+<p>UPDATE  </p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+    <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
+    <span class="pl-st">long</span> id <span class="pl-k">=</span> <span class="pl-c1">111l</span>;
+    notes<span class="pl-k">.</span>setId(id);
+    notes<span class="pl-k">.</span>title <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Title1<span class="pl-pds">"</span></span>;
+    notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
+    manager<span class="pl-k">.</span>update(notes);
+
+    <span class="pl-c">// ## Null除外する際は、updateExcludesNullが使用可能です。</span>
+    <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
+    <span class="pl-st">long</span> id <span class="pl-k">=</span> <span class="pl-c1">111l</span>;
+    notes<span class="pl-k">.</span>setId(id);
+    notes<span class="pl-k">.</span>title <span class="pl-k">=</span> <span class="pl-c1">null</span>;
+    notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
+    manager<span class="pl-k">.</span>updateExcludesNull(notes);
+
+    <span class="pl-c">// ## SQliteDatabaseと同じようなIFでの更新が可能です</span>
+    <span class="pl-stj">ContentValues</span> value <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">ContentValues</span>();
+    value<span class="pl-k">.</span>put(<span class="pl-stj">Notes</span><span class="pl-c1"><span class="pl-k">.</span>TITLE</span>, <span class="pl-s1"><span class="pl-pds">"</span>TEST<span class="pl-pds">"</span></span>);
+    manager<span class="pl-k">.</span>updateById(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class, value, <span class="pl-c1">1l</span>);</pre></div>
+
+<p>DELETE</p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+    <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
+    <span class="pl-st">long</span> id <span class="pl-k">=</span> <span class="pl-c1">111l</span>;
+    notes<span class="pl-k">.</span>setId(id);
+    manager<span class="pl-k">.</span>delete(notes);
+
+    <span class="pl-c">// Class と IDを指定して削除する</span>
+    manager<span class="pl-k">.</span>deleteById(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class, <span class="pl-c1">111l</span>);
+    <span class="pl-c">// Class Where句 Bind変数を指定して削除する</span>
+    manager<span class="pl-k">.</span>delete(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class, <span class="pl-s1"><span class="pl-pds">"</span>_id=?<span class="pl-pds">"</span></span>, <span class="pl-c1">111l</span>);
+    <span class="pl-c">// Table Where句 Bind変数を指定して削除する</span>
+    manager<span class="pl-k">.</span>delete(<span class="pl-s1"><span class="pl-pds">"</span>NOTES<span class="pl-pds">"</span></span>,  <span class="pl-s1"><span class="pl-pds">"</span>_id=?<span class="pl-pds">"</span></span>, <span class="pl-c1">111l</span>);    </pre></div>
+
+<h3>
+<a id="クエリオブジェクトを使用したcrud" class="anchor" href="#%E3%82%AF%E3%82%A8%E3%83%AA%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9Fcrud" aria-hidden="true"><span class="octicon octicon-link"></span></a>クエリオブジェクトを使用したCRUD</h3>
+
+<p>クエリオブジェクトはentitymanagrのnew...で始まるメソッドを使用して生成します。  </p>
+
+<div class="highlight highlight-java"><pre>    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+    manager<span class="pl-k">.</span>newInsertInto(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>value(<span class="pl-stj">Notes</span><span class="pl-c1"><span class="pl-k">.</span>TITLE</span>, <span class="pl-s1"><span class="pl-pds">"</span>TEST<span class="pl-pds">"</span></span>)<span class="pl-k">.</span>execute();
+
+    <span class="pl-c">// monotalk.db.query.QueryBuilder#toValuesExcludesColumns()をstatic importして、</span>
+    <span class="pl-c">// EntityオブジェクトからContentsValueを生成して登録します。</span>
+    <span class="pl-stj">EntityManager</span> manager <span class="pl-k">=</span> <span class="pl-stj">MonoTalk</span><span class="pl-k">.</span>getDBManagerByDefaultDbName();
+    <span class="pl-stj">Notes</span> notes <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-stj">Notes</span>();
+    notes<span class="pl-k">.</span>body <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Hello World1<span class="pl-pds">"</span></span>;
+    manager<span class="pl-k">.</span>newInsertInto(<span class="pl-stj">Notes</span><span class="pl-k">.</span>class)<span class="pl-k">.</span>values(toValuesExcludesColumns(notes, <span class="pl-stj">Notes</span><span class="pl-c1"><span class="pl-k">.</span>TITLE</span>))<span class="pl-k">.</span>execute();
+
+</pre></div>
+
+<p>update,deleteについては今後ドキュメントを作成します。</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
