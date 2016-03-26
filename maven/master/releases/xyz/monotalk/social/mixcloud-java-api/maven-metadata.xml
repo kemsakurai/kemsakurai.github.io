@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>xyz.monotalk.social</groupId>
+  <artifactId>mixcloud-java-api</artifactId>
+  <version>0.0.1</version>
+  <versioning>
+    <versions>
+      <version>0.0.1</version>
+    </versions>
+    <lastUpdated>20160326164122</lastUpdated>
+  </versioning>
+</metadata>
