@@ -1,0 +1,128 @@
+{
+  "assetsByChunkName": {
+    "path---tags-python": [
+      "path---tags-python-da25871391cb65eabaff.js",
+      "path---tags-python-da25871391cb65eabaff.js.map"
+    ],
+    "path---mezzanine-pubsubhubbub-pub": [
+      "path---mezzanine-pubsubhubbub-pub-f33f7e918ae39b6277f7.js",
+      "path---mezzanine-pubsubhubbub-pub-f33f7e918ae39b6277f7.js.map"
+    ],
+    "path---tags-pubsubhubbub": [
+      "path---tags-pubsubhubbub-0490828c8ba142af2a67.js",
+      "path---tags-pubsubhubbub-0490828c8ba142af2a67.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---tags-datavisualization": [
+      "path---tags-datavisualization-c9a1216e68383744e33a.js",
+      "path---tags-datavisualization-c9a1216e68383744e33a.js.map"
+    ],
+    "component---src-layouts-index-jsx": [
+      "component---src-layouts-index-jsx-824739d088fbfd88fdb6.js",
+      "component---src-layouts-index-jsx-824739d088fbfd88fdb6.js.map"
+    ],
+    "path---folium-example": [
+      "path---folium-example-24cbcb5b77fd445fa16e.js",
+      "path---folium-example-24cbcb5b77fd445fa16e.js.map"
+    ],
+    "component---node-modules-gatsby-plugin-offline-app-shell-js": [
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
+    ],
+    "path---tags-folium": [
+      "path---tags-folium-b41684dc7146219769cb.js",
+      "path---tags-folium-b41684dc7146219769cb.js.map"
+    ],
+    "component---src-templates-category-jsx": [
+      "component---src-templates-category-jsx-1164b84cac2fa2266e4d.js",
+      "component---src-templates-category-jsx-1164b84cac2fa2266e4d.js.map"
+    ],
+    "path---tags-orm": [
+      "path---tags-orm-f4450f330a36c1370f67.js",
+      "path---tags-orm-f4450f330a36c1370f67.js.map"
+    ],
+    "path---index": [
+      "path---index-d5cd51618a0ab93939e0.js",
+      "path---index-d5cd51618a0ab93939e0.js.map"
+    ],
+    "component---src-pages-about-jsx": [
+      "component---src-pages-about-jsx-ad03a97f9d94d9bb3877.js",
+      "component---src-pages-about-jsx-ad03a97f9d94d9bb3877.js.map"
+    ],
+    "path---tags-java": [
+      "path---tags-java-c28a3db94987ebd8a4e2.js",
+      "path---tags-java-c28a3db94987ebd8a4e2.js.map"
+    ],
+    "path---tags-mezzanine": [
+      "path---tags-mezzanine-5e86a1143fcd48c74ebe.js",
+      "path---tags-mezzanine-5e86a1143fcd48c74ebe.js.map"
+    ],
+    "commons": [
+      "commons-5b044d8c88b814d8912a.js",
+      "build-js-styles.css",
+      "commons-5b044d8c88b814d8912a.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---categories-java": [
+      "path---categories-java-3acb81baba23b3afb5dc.js",
+      "path---categories-java-3acb81baba23b3afb5dc.js.map"
+    ],
+    "path---tags-cytoscape": [
+      "path---tags-cytoscape-b057c6ea3668152bb953.js",
+      "path---tags-cytoscape-b057c6ea3668152bb953.js.map"
+    ],
+    "path---tags-dropwizard": [
+      "path---tags-dropwizard-c6ec7c0a6d7f4bae424a.js",
+      "path---tags-dropwizard-c6ec7c0a6d7f4bae424a.js.map"
+    ],
+    "component---src-templates-tag-jsx": [
+      "component---src-templates-tag-jsx-3bff18d0edf3b6d7ade5.js",
+      "component---src-templates-tag-jsx-3bff18d0edf3b6d7ade5.js.map"
+    ],
+    "path---categories-python": [
+      "path---categories-python-30a127bb153b4e8e6645.js",
+      "path---categories-python-30a127bb153b4e8e6645.js.map"
+    ],
+    "path---dropwizard-ls-command": [
+      "path---dropwizard-ls-command-cfab82604d650e611725.js",
+      "path---dropwizard-ls-command-cfab82604d650e611725.js.map"
+    ],
+    "path---mono-talk": [
+      "path---mono-talk-48a6442aff474eebee6e.js",
+      "path---mono-talk-48a6442aff474eebee6e.js.map"
+    ],
+    "path---offline-plugin-app-shell-fallback": [
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-templates-post-jsx": [
+      "component---src-templates-post-jsx-b3892f5f028834093e3e.js",
+      "component---src-templates-post-jsx-b3892f5f028834093e3e.js.map"
+    ],
+    "component---src-pages-index-jsx": [
+      "component---src-pages-index-jsx-5a045e6988649929b266.js",
+      "component---src-pages-index-jsx-5a045e6988649929b266.js.map"
+    ],
+    "app": [
+      "app-2da405967c386e2c9706.js",
+      "build-js-styles.css",
+      "app-2da405967c386e2c9706.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---py-2-cytoscape-example": [
+      "path---py-2-cytoscape-example-239704d56553fe38f27f.js",
+      "path---py-2-cytoscape-example-239704d56553fe38f27f.js.map"
+    ],
+    "path---tags-android": [
+      "path---tags-android-d444bdb77ff598cf2bb9.js",
+      "path---tags-android-d444bdb77ff598cf2bb9.js.map"
+    ],
+    "path---about": [
+      "path---about-a0e39f21c11f6a62c5ab.js",
+      "path---about-a0e39f21c11f6a62c5ab.js.map"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://kemsakurai.github.io/offline-plugin-app-shell-fallback/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/mono-talk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/dropwizard-ls-command</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/py-2-cytoscape-example</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/mezzanine-pubsubhubbub-pub</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/folium-example</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/java/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/android/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/orm/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/dropwizard/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/python/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/cytoscape/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/datavisualization/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/mezzanine/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/pubsubhubbub/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/tags/folium/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/categories/java/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/categories/python/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://kemsakurai.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
