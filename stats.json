@@ -12,6 +12,10 @@
       "path---tags-pubsubhubbub-0490828c8ba142af2a67.js",
       "path---tags-pubsubhubbub-0490828c8ba142af2a67.js.map"
     ],
+    "path---tags-advertisement": [
+      "path---tags-advertisement-a633680b7dba6819d0f1.js",
+      "path---tags-advertisement-a633680b7dba6819d0f1.js.map"
+    ],
     "path---": [
       "path----557518bd178906f8d58a.js",
       "path----557518bd178906f8d58a.js.map"
@@ -28,6 +32,10 @@
       "path---folium-example-0366e16a6de285079b68.js",
       "path---folium-example-0366e16a6de285079b68.js.map"
     ],
+    "path---gtm-banner-example": [
+      "path---gtm-banner-example-841cd6c25e80c79debf4.js",
+      "path---gtm-banner-example-841cd6c25e80c79debf4.js.map"
+    ],
     "component---node-modules-gatsby-plugin-offline-app-shell-js": [
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
@@ -40,13 +48,17 @@
       "component---src-templates-category-jsx-1164b84cac2fa2266e4d.js",
       "component---src-templates-category-jsx-1164b84cac2fa2266e4d.js.map"
     ],
+    "path---categories-gtm": [
+      "path---categories-gtm-cf76ebad6253f3a15962.js",
+      "path---categories-gtm-cf76ebad6253f3a15962.js.map"
+    ],
     "path---tags-orm": [
       "path---tags-orm-f4450f330a36c1370f67.js",
       "path---tags-orm-f4450f330a36c1370f67.js.map"
     ],
     "path---index": [
-      "path---index-d5cd51618a0ab93939e0.js",
-      "path---index-d5cd51618a0ab93939e0.js.map"
+      "path---index-dba3a3a11f1f03b46579.js",
+      "path---index-dba3a3a11f1f03b46579.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-ad03a97f9d94d9bb3877.js",
@@ -107,14 +119,18 @@
       "component---src-pages-index-jsx-5a045e6988649929b266.js.map"
     ],
     "app": [
-      "app-a815ed2770213337968f.js",
+      "app-151d66e6914b0a171974.js",
       "build-js-styles.css",
-      "app-a815ed2770213337968f.js.map",
+      "app-151d66e6914b0a171974.js.map",
       "build-js-styles.css.map"
     ],
     "path---py-2-cytoscape-example": [
       "path---py-2-cytoscape-example-42522f159de3a5a41d4d.js",
       "path---py-2-cytoscape-example-42522f159de3a5a41d4d.js.map"
+    ],
+    "path---tags-gtm": [
+      "path---tags-gtm-511809ea289b279cc111.js",
+      "path---tags-gtm-511809ea289b279cc111.js.map"
     ],
     "path---tags-android": [
       "path---tags-android-d444bdb77ff598cf2bb9.js",
