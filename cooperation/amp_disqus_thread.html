@@ -30,7 +30,11 @@ function receiveMessage(event)
      */
     var disqus_config = function () {
         this.page.url = "https://www.monotalk.xyz" + (new URL(window.location)).searchParams.get("url");  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = window.location.hash.split("#")[1];
+        var hash = window.location.hash;
+        if (hash.length > 0) {
+            hash = hash.slice(1);
+        }
+        this.page.identifier = hash;
     };
     (function() {  // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
