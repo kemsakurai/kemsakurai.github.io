@@ -18,17 +18,18 @@
   </style>
   <script>
   // Set up our test API
-  var test = new Study({
+  var splitTest = new Study({
     store: Study.stores.local
   });
   // Define a test
-  test.define([{
+  splitTest.define([{
       name: 'new-homepage',
       buckets: {
           variantA: { weight: 0.5 },
           variantB: { weight: 0.5 }
       }
   }]);
+  test.assign();
   </script>
 </head>
 <body class="new-homepage--variantA">
