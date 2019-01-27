@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Study Example</title>
+  <script src="https://rawcdn.githack.com/dollarshaveclub/study/885e30fc413f2160e3ac7ea746adf98ee9e1c499/build/study.js"></script>
+  <style type="text/css">
+  .new-homepage--variantA {
+    background-color:#39C;
+  }
+  .new-homepage--variantB {
+    background-color:#000000;
+  }
+  </style>
+  <script>
+  // Set up our test API
+  var test = new Study({
+    store: Study.stores.local
+  });
+  // Define a test
+  test.define([{
+      name: 'new-homepage',
+      buckets: {
+          variantA: { weight: 0.5 },
+          variantB: { weight: 0.5 }
+      }
+  }]);
+  </script>
+</head>
+<body class="new-homepage--variantA">
+   Body タグの背景がAB Testにより変更される。    
+</body>
+</html>
