@@ -6,7 +6,6 @@
 <url> <loc>https://portfolio.monotalk.xyz/mezzanine-pubsubhubbub-pub</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://portfolio.monotalk.xyz/dropwizard-ls-command</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://portfolio.monotalk.xyz/mono-talk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://portfolio.monotalk.xyz/examples</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://portfolio.monotalk.xyz/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://portfolio.monotalk.xyz/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
