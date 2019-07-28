@@ -26,25 +26,21 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-4b478487dead5d6c3576.js"
+    "url": "webpack-runtime-cb9ce4ca39144ebd559c.js"
   },
   {
-    "url": "app-8395cc9ce47a7c73f6f9.js"
+    "url": "app-5590c86d4d6ac3d05f19.js"
   },
   {
-    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-ec6a8f9ad18c3c29022e.js"
+    "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-b64dc9af98d13826aa77.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "77e25844cc9515a0afb7ff4132d418bb"
+    "revision": "75fb9b22a3bc96107ccbe6e391bb7a4a"
   },
   {
-    "url": "static/d/520/path---offline-plugin-app-shell-fallback-a-30-c5a-NZuapzHg3X9TaN1iIixfv1W23E.json",
-    "revision": "c2508676a2f33ea9f1f0bf472997f9a0"
-  },
-  {
-    "url": "manifest.json",
-    "revision": "dcff18bdf58d4686b43069935ee70a4b"
+    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
+    "revision": "f2be1d91bd33e78cf1ca0316950b16e2"
   },
   {
     "url": "manifest.webmanifest",
