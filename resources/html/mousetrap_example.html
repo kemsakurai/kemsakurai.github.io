@@ -31,12 +31,16 @@ Mousetrap.bind(['ctrl+s', 'meta+s'], function(e) {
         // internet explorer
         e.returnValue = false;
     }
-    _saveDraft();
+    alert('ctrl+s meta+s pressed!');
 });
+
 Mousetrap.bind(['ctrl+a', 'meta+a'], function(e) {
-    _saveDraft();
+    alert('ctrl+a or meta+a pressed!');
     return false;
 });
+Mousetrap.bind('a b c', function(){
+   alert('abcがシーケンシャル押下されました。');
+  });
 
 </script>        
 <div class="container">
