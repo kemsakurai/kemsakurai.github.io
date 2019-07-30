@@ -18,46 +18,24 @@
     <!-- End Google Tag Manager -->    
   </head>
 <body>
-<script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.3/mousetrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.3/plugins/bind-dictionary/mousetrap-bind-dictionary.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.3/plugins/global-bind/mousetrap-global-bind.min.js" integrity="sha256-9nbLbhyVhsFCvtD9VUqA/Sxk+0Io1A50/kpyJflDW5w=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.3/plugins/pause/mousetrap-pause.min.js" integrity="sha256-eYdO41a+NZrjNpD5TTK3gtthSQebheQ9ZZ5kSguv2Sk=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.3/plugins/record/mousetrap-record.min.js" integrity="sha256-zDAqGD39yfUjfUJICX3IYRsywj+jOxCsqZGjOQaLZ6g=" crossorigin="anonymous"></script>
 <script type="text/javascript">
-hotkeys('ctrl+a, ctrl+b', function(event,handler) {
-    switch(handler.key){
-      case "ctrl+a":document.getElementById("left-form").fullName.value = "ctrl+a"; break;
-      case "ctrl+b":
-         alert('ctrl+b click!');
-         break;
+Mousetrap.bind(['ctrl+s', 'meta+s'], function(e) {
+    if (e.preventDefault) {
+        e.preventDefault();
+    } else {
+        // internet explorer
+        e.returnValue = false;
     }
+    _saveDraft();
 });
-hotkeys('*', function(e){
-  if(hotkeys.shift) console.log('shift is pressed!');
-  if(hotkeys.ctrl) console.log('ctrl is pressed!');
-  if(hotkeys.alt) console.log('alt is pressed!');
-  if(hotkeys.option) console.log('option is pressed!');
-  if(hotkeys.control) console.log('control is pressed!');
-  if(hotkeys.cmd) console.log('cmd is pressed!');
-  if(hotkeys.command) console.log('command is pressed!');
-});
-
-hotkeys('a', function(event,handler){
-  //event.srcElement: input 
-  //event.target: input
-  if(event.target === "input"){
-      alert('you pressed a!')
-  }
-  alert('you pressed a!') 
-});
-hotkeys('x+s', function(event,handler) {
-  if(handler.key === 'x+s') {
-    alert('you pressed x+s!');
-  }
-});
-hotkeys('*','wcj', function(e){
-  console.log('do something',e);
-});
-hotkeys('a', function(){
-  console.log(hotkeys.isPressed("a")); //=> true
-  console.log(hotkeys.isPressed("A")); //=> true
-  console.log(hotkeys.isPressed(65)); //=> true
+Mousetrap.bind(['ctrl+a', 'meta+a'], function(e) {
+    _saveDraft();
+    return false;
 });
 
 </script>        
