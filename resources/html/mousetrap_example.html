@@ -41,6 +41,14 @@ Mousetrap.bind(['ctrl+a'], function(e) {
 Mousetrap.bind('a b c', function(){
    alert('abcがシーケンシャル押下されました。');
 });
+
+var mousetrapEx = new Mousetrap();
+mousetrapEx.stopCallback = function(e, element) {
+   return false;
+};
+mousetrapEx.bind(['m'], function(e) {
+   alert('m pressed!');
+});
 </script>        
 <div class="container">
     <h1>Mousetrap example</h1>
