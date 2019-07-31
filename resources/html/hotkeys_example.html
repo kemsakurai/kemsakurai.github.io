@@ -49,17 +49,7 @@ hotkeys('a', function(){
   console.log(hotkeys.isPressed(65)); //=> true
 });
 
-var inherits = function(childCtor, parentCtor) {
-  Object.setPrototypeOf(childCtor.prototype, parentCtor.prototype);
-};
-var hotkeysEx = function(useDefaultFilter) {
-   this.useDefaultFilter = useDefaultFilter;
-};
-inherits(hotkeysEx, hotkeys);
-hotkeysEx.prototype.filter = function(event){
-  return true;
-}
-hotkeysEx('m', function(event,handler){
+hotkeys('m', function(event,handler){
   //event.srcElement: input 
   //event.target: input
   if(event.target === "input"){
