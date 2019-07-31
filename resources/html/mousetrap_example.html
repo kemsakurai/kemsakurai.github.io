@@ -34,17 +34,16 @@ Mousetrap.bind(['ctrl+s', 'meta+s'], function(e) {
     alert('ctrl+s meta+s pressed!');
 });
 
-Mousetrap.bind(['ctrl+a', 'meta+a'], function(e) {
-    alert('ctrl+a or meta+a pressed!');
+Mousetrap.bind(['ctrl+a'], function(e) {
+    alert('ctrl+a pressed!');
     return false;
 });
 Mousetrap.bind('a b c', function(){
    alert('abcがシーケンシャル押下されました。');
-  });
-
+});
 </script>        
 <div class="container">
-    <h1>HotKeys example</h1>
+    <h1>Mousetrap example</h1>
        <table class="table table-striped">
           <tbody>
              <tr>
