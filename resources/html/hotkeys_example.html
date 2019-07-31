@@ -38,21 +38,18 @@ hotkeys('*', function(e){
   if(hotkeys.command) console.log('command is pressed!');
 });
 
-hotkeys('a', function(event,handler){
+hotkeys('m', function(event,handler){
   //event.srcElement: input 
   //event.target: input
   if(event.target === "input"){
-      alert('you pressed a!')
+      alert('you pressed m!')
   }
-  alert('you pressed a!') 
+  alert('you pressed mmmmmmmmmm!') 
 });
 hotkeys('x+s', function(event,handler) {
   if(handler.key === 'x+s') {
     alert('you pressed x+s!');
   }
-});
-hotkeys('*','wcj', function(e){
-  console.log('do something',e);
 });
 hotkeys('a', function(){
   console.log(hotkeys.isPressed("a")); //=> true
