@@ -52,10 +52,11 @@ hotkeys('a', function(){
 hotkeys('m', function(event,handler){
   //event.srcElement: input 
   //event.target: input
-  if(event.target === "input"){
+  if(event.target.tagName === "INPUT"){
       alert('you pressed m!')
+  } else {
+      alert('you pressed mmmmmmmmmmmmmmmmmmmmmm!');
   }
-  alert('you pressed mmmmmmmmmmmmmmmmmmmmmm!') 
 });
 </script>        
 <div class="container">
