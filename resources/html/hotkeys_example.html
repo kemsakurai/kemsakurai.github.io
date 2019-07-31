@@ -48,6 +48,25 @@ hotkeys('a', function(){
   console.log(hotkeys.isPressed("A")); //=> true
   console.log(hotkeys.isPressed(65)); //=> true
 });
+
+var inherits = function(childCtor, parentCtor) {
+  Object.setPrototypeOf(childCtor.prototype, parentCtor.prototype);
+};
+var hotkeysEx = function(useDefaultFilter) {
+   this.useDefaultFilter = useDefaultFilter;
+};
+inherits(hotkeysEx, hotkeys);
+hotkeysEx.prototype.filter = function(event){
+  return true;
+}
+hotkeysEx('m', function(event,handler){
+  //event.srcElement: input 
+  //event.target: input
+  if(event.target === "input"){
+      alert('you pressed m!')
+  }
+  alert('you pressed mmmmmmmmmmmmmmmmmmmmmm!') 
+});
 </script>        
 <div class="container">
     <h1>HotKeys example</h1>
