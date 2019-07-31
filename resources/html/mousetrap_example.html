@@ -34,8 +34,8 @@ Mousetrap.bind(['ctrl+s', 'meta+s'], function(e) {
     alert('ctrl+s meta+s pressed!');
 });
 
-Mousetrap.bind(['ctrl+a'], function(e) {
-    alert('ctrl+a pressed!');
+Mousetrap.bind(['ctrl+a','meta+a'], function(e) {
+    console.log('ctrl+a meta+a pressed!');
     return false;
 });
 Mousetrap.bind('a b c', function(){
