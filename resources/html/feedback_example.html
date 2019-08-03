@@ -16,29 +16,6 @@
     })(window,document,'script','dataLayer','GTM-MDJFD5S');</script>
     <!-- End Google Tag Manager -->    
   </head>
-  <script>
-  window.appendFeedbackHTML = function(data) {
-      var newDiv = document.createElement("div");
-      newDiv.setAttribute("id", "feedbackContainer");
-      newDiv.innerHTML = data.html;
-      document.body.appendChild(newDiv);
-      newDiv = document.getElementById('feedbackContainer');
-      var scripts = newDiv.querySelectorAll("script");
-      // innerHTMLとして設定した
-      try {
-        for (var i = 0; i < scripts.length; i++) {
-            eval(scripts[i].innerText);
-        }
-      } catch (e) {
-        // Do Nothing...
-      }
-      //
-      var scripts = newDiv.querySelectorAll("script");
-      for (var i = 0; i < scripts.length; i++) {
-          eval(scripts[i].innerText);
-      }
-  };
-  </script>
   <body screen_capture_injected="true" style="">
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -96,10 +73,28 @@
         <p>© Company 2018</p>
       </footer>
     </div>
-    <script>
-      var scriptEl = document.createElement('script');
-      scriptEl.setAttribute('src',
-          'https://script.google.com/macros/s/AKfycbwvYm3YZ1jb60EQHDrbPAkVpKWlv4NfEg4QxOY16Fdl8Bkx8SM/exec?callback=appendFeedbackHTML');
-      document.body.appendChild(scriptEl);
-    </script>
+  <script>
+      window.appendFeedbackHTML = function(data) {
+          var newDiv = document.createElement("div");
+          newDiv.setAttribute("id", "feedbackContainer");
+          newDiv.innerHTML = data.html;
+          document.body.appendChild(newDiv);
+          newDiv = document.getElementById('feedbackContainer');
+          var scripts = newDiv.querySelectorAll("script");
+          // innerHTMLとして設定した
+          var scripts = newDiv.querySelectorAll("script");
+          for (var i = 0; i < scripts.length; i++) {
+              eval(scripts[i].innerText);
+          }
+      };
+  </script>    
+  <script type="text/javascript">    
+    var script = document.createElement('script');
+    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js';
+    document.body.appendChild(script);
+    var scriptEl = document.createElement('script');      
+    scriptEl.setAttribute('src',
+        'https://script.google.com/macros/s/AKfycbwvYm3YZ1jb60EQHDrbPAkVpKWlv4NfEg4QxOY16Fdl8Bkx8SM/exec?callback=appendFeedbackHTML');
+    document.body.appendChild(scriptEl);
+  </script>
   </body></html>
