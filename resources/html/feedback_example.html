@@ -25,8 +25,12 @@
       newDiv = document.getElementById('feedbackContainer');
       var scripts = newDiv.querySelectorAll("script");
       // innerHTMLとして設定した
-      for (var i = 0; i < scripts.length; i++) {
-          eval(scripts[i].innerText);
+      try {
+        for (var i = 0; i < scripts.length; i++) {
+            eval(scripts[i].innerText);
+        }
+      } catch (e) {
+        // Do Nothing...
       }
       //
       var scripts = newDiv.querySelectorAll("script");
